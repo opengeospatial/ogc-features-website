@@ -1,0 +1,526 @@
+doctype html
+html(lang='en')
+
+    head
+
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+        meta(name='description', content='')
+        meta(name='author', content='')
+
+        title OGC API Features
+
+        // Favicon
+        link(rel='icon', type='image/x-icon', href='assets/favicon.ico')
+
+        // Font Awesome icons (free version)
+        script(src='https://use.fontawesome.com/releases/v5.15.3/js/all.js', crossorigin='anonymous')
+
+        // Google fonts
+        link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700', rel='stylesheet', type='text/css')
+        link(href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700', rel='stylesheet', type='text/css')
+
+        // Core theme CSS (includes Bootstrap)
+        link(href='css/styles.css', rel='stylesheet')
+
+    body#page-top
+
+        // Navigation
+        nav#mainNav.navbar.navbar-expand-lg.navbar-dark.fixed-top
+            .container
+                a.navbar-brand(href='#page-top') HOME
+                    //img(src='assets/img/navbar-logo.svg', alt='...')
+                button.navbar-toggler(type='button', data-bs-toggle='collapse', data-bs-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+                    | Menu
+                    i.fas.fa-bars.ms-1
+                #navbarResponsive.collapse.navbar-collapse
+                    ul.navbar-nav.text-uppercase.ms-auto.py-4.py-lg-0
+                        li.nav-item
+                            a.nav-link(href='#services') Why
+                        li.nav-item
+                            a.nav-link(href='#portfolio') How
+                        li.nav-item
+                            a.nav-link(href='#about') In Action
+                        li.nav-item
+                            a.nav-link(href='#team') Get Started
+                        li.nav-item
+                            a.nav-link(href='#contact') Get Involved
+                a(href='https://github.com/doublebyte1/ogc-features-website')
+                    img(style='position: absolute; top: 0; right: 0; border: 0;' src='https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png' alt='Fork me on GitHub')
+
+
+
+        // Masthead
+        header.masthead
+            .container
+                .masthead-heading.text-uppercase OGC API Features
+                .masthead-subheading Querying geospatial data on the web
+                //- a.btn.btn-primary.btn-xl.text-uppercase(href='#services') Tell Me More
+                //- a.btn.btn-primary.btn-xl.text-uppercase(href='#team') Get Started
+
+                
+                a.btn.btn-primary.btn-xl.text-uppercase(href='#services') Tell Me More
+                a.btn.btn-primary.btn-xl.text-uppercase(href='#team') Get Started
+
+
+
+
+        // Services
+        section#services.page-section
+            .container
+                .text-center
+                    h2.section-heading.text-uppercase Why?
+                    h3.section-subheading.text-muted Main reasons for using OGC API Features.
+                .row.text-center
+                    .col-md-4
+                        span.fa-stack.fa-4x
+                            i.fas.fa-circle.fa-stack-2x.text-primary
+                            i.fas.fa-plug.fa-stack-1x.fa-inverse
+                        h4.my-3 Interoperable
+                        p.text-muted
+                            | Ensure that your application can read data from existing and new sources without changing how you communicate with them. Ensure that the data you share can be accessed by different clients, without having to share details of your implementation.
+                    .col-md-4
+                        span.fa-stack.fa-4x
+                            i.fas.fa-circle.fa-stack-2x.text-primary
+                            i.fas.fa-laptop-code.fa-stack-1x.fa-inverse
+                        h4.my-3 Based on Best Practices
+                        p.text-muted
+                            | This API is based on the technologies and vocabularies that make up the web today, such as REST, OpenAPI, JSON and HTML. This should ensure a smooth learning curve for any web developer, even if they are not familiar with GIS.
+                    .col-md-4
+                        span.fa-stack.fa-4x
+                            i.fas.fa-circle.fa-stack-2x.text-primary
+                            i.fas.fa-layer-group.fa-stack-1x.fa-inverse
+                        h4.my-3 Supported on Existing Products
+                        p.text-muted
+                            | You can start using the OGC API Features specification today, by tapping into one of the 
+                            a(href='#implementations') existing server or client implementations.
+
+        // Portfolio Grid
+        section#portfolio.page-section.bg-light
+            .container
+                .text-center
+                    h2.section-heading.text-uppercase Overview
+                    h3.section-subheading.text-muted OGC API Features provides access to collections of geospatial data.
+                    img(src='assets/img/overview.png', title='Source: https://demo.ldproxy.net/daraa', alt='..')
+                .text-left
+                    ul
+                        li
+                            h4 Get collections
+                            p.text-muted Lists the collections of data on the server that can be queried, and each describes basic information about the geospatial data collection, like its id and description, as well as the spatial and temporal extents of all the data contained.
+                        li
+                            h4 Get items
+                            p.text-muted Requests all the data in a given collection. The response format (typically HTML or a GeoJSON feature collection, but GML is supported, too, and extensions can easily supply others) is determined using HTTP content negotiation.
+                        li
+                            h4 Get feature
+                            p.text-muted Returns a single 'feature' - something in the real-world (a building, a stream, a county, etc.) that typically is described by a geometry plus other properties. This provides a stable, canonical URL to link to the 'thing'.
+
+                p.text-muted If you are interested in finding out how-to use other coordinate reference systems, you can 
+                    a(href='https://github.com/opengeospatial/ogcapi-features/tree/master/extensions/crs' target="_blank") read this
+
+                    |. You can find 
+                    a(href='https://ogcapi.ogc.org/features/' target="_blank") here
+                    
+                    //- |. You can also read 
+                    //- a(href='https://docs.ogc.org/is/17-069r3/17-069r3.html' target="_blank") part 1
+                    //- | and 
+                    //- a(href='https://docs.ogc.org/is/18-058/18-058.html' target="_blank") part 2
+                    | links for different parts of the spec and explore it using 
+                    a(href='https://app.swaggerhub.com/apis/cportele/ogcapi-features-1-example1/1.0.0' target="_blank") Swagger
+                    |.
+                    
+
+        // About
+        section#about.page-section
+            .container
+                .text-center
+                    h2.section-heading.text-uppercase See it In Action
+                    h3.section-subheading.text-muted This is a list of demo server implementations, that provide sample data. Please
+                        a(href='mailto:jsimoes@ogc.org') get in touch
+                        |, if you would like to add your server to the list.
+                       
+
+                .row
+                    .col-lg-4
+                        .team-member
+                            img.mx-auto.rounded-circle(src='assets/img/ldproxy1.png', alt='...')
+                            h4 Vineyards in Rhineland-Palatinate, Germany
+                            p.text-muted Powered by Ldproxy
+                            p.text-muted Have you ever wondered where the wine that you are drinking comes from? If the wine comes from the wine-growing regions Mosel, Nahe, Rheinhessen, Pfalz, Ahr, or Mittelrhein you can find this information in this API.
+                            a.btn.btn-dark.btn-social.mx-2(href='https://demo.ldproxy.net/vineyards' title='Landing page' target="_blank")
+                                i.fa.fa-link
+                            a.btn.btn-dark.btn-social.mx-2(href='https://demo.ldproxy.net/vineyards/api/' title='OpenAPI definition' target="_blank")
+                                i.fa.fa-code
+
+                    .col-lg-4
+                        .team-member
+                            img.mx-auto.rounded-circle(src='assets/img/pygeoapi.png', alt='...')
+                            h4 Portuguese Points of Interest
+                            p.text-muted Powered by Pygeoapi
+                            p.text-muted Portuguese Points of Interest obtained from OpenStreetMap. Dataset includes Madeira and Azores islands. Uses GeoPackage backend via OGR provider.
+                            a.btn.btn-dark.btn-social.mx-2(href='https://demo.pygeoapi.io/master/collections/ogr_gpkg_poi' title='Landing page' target="_blank")
+                                i.fa.fa-link
+                            a.btn.btn-dark.btn-social.mx-2(href='https://demo.pygeoapi.io/master/openapi?f=html' title='OpenAPI definition' target="_blank")
+                                i.fa.fa-code
+
+
+                    .col-lg-4
+                        .team-member
+                            img.mx-auto.rounded-circle(src='assets/img/cubewerx.png', alt='...')
+                            h4 Zaatari Refugee Camp مخيم الزعتري
+                            p.text-muted Powered by CubeWerx
+                            p.text-muted Zaatari is a refugee camp in Jordan, located 10 kilometres east of Mafraq, which has gradually evolved into a permanent settlement; it is the world’s largest camp for Syrian refugees.
+                            a.btn.btn-dark.btn-social.mx-2(href='https://www.pvretano.com/cubewerx/cubeserv/default/ogcapi/zaatari' title='Landing page' target="_blank")
+                                i.fa.fa-link
+                            a.btn.btn-dark.btn-social.mx-2(href='https://www.pvretano.com/cubewerx/cubeserv/default/ogcapi/zaatari/api?f=html' title='OpenAPI definition' target="_blank")
+                                i.fa.fa-code
+
+
+        section#implementations.page-section
+            .container
+                .text-center
+                    h2.section-heading.text-uppercase Use it
+
+                    h3.section-subheading.text-muted Do you want to start using OGC API Features? Before starting to implement the spec, please take a look at the existing implementations. 
+        
+
+
+                    <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                        <th scope="col" colspan="5" class="table-dark">Servers by Technology</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th scope="row" rowspan="3" class="table-info">Java <i class="fab fa-java"></i></th>
+                        <td>Ldproxy<sup>*</sup></td>
+                        <td title="Github repository"><a href="https://github.com/interactive-instruments/ldproxy"><i class="fab fa-github"></i></a></td>
+                        <td title="Docker image"><a href="https://hub.docker.com/r/iide/ldproxy/"><i class="fab fa-docker"></i></a></td>
+                        <td title="Tutorial/Example"><a href="https://github.com/interactive-instruments/ldproxy/tree/master/demo/vineyards"><i class="fas fa-graduation-cap"></i>/<i class="fas fa-code"></i></a></td>
+                        </tr>
+                        <tr>
+                        <td>Geoserver</td>
+                        <td title="Github repository"><a href="https://github.com/geoserver/geoserver"><i class="fab fa-github"></i></a></td>
+                        <td title="Docker image"><a href="https://hub.docker.com/r/oscarfonts/geoserver"><i class="fab fa-docker"></i></a></td>
+                        <td title="Tutorial/Example"><a href="https://docs.geoserver.org/latest/en/user/community/ogc-api/install.html"><i class="fas fa-graduation-cap"></i>/<i class="fas fa-code"></i></a></td>                
+                        </tr>
+                        <tr>                        
+                        <td>Deegree<sup>*</sup></td>
+                        <td title="Github repository"><a href="https://github.com/deegree/deegree-ogcapi"><i class="fab fa-github"></i></a></td>
+                        <td title="Docker image"></td>
+                        <td title="Tutorial/Example"><a href="https://oaf.lat-lon.de/deegree-services-oaf/documentation/index.html"><i class="fas fa-graduation-cap"></i>/<i class="fas fa-code"></i></a></td>                
+                        </tr>
+                        <tr>
+                        <th scope="row" rowspan="2" class="table-info">Python <i class="fab fa-python"></i></th>
+                        <td>Pygeoapi<sup>*</sup></td>
+                        <td title="Github repository"><a href="https://github.com/geopython/pygeoapi"><i class="fab fa-github"></i></a></td>
+                        <td title="Docker image"><a href="https://hub.docker.com/r/geopython/pygeoapi"><i class="fab fa-docker"></i></a></td>
+                        <td title="Tutorial/Example"><a href="https://docs.pygeoapi.io/en/latest/"><i class="fas fa-graduation-cap"></i>/<i class="fas fa-code"></i></a></td>                
+                        </tr>
+                        <tr>
+                        <td>GeoPortal</td>
+                        <td title="Github repository"><a href="https://github.com/mrmap-community/GeoPortal.rlp"><i class="fab fa-github"></i></a></td>
+                        <td></td>
+                        <td></td>                
+                        </tr>                        
+                        <tr>
+                        <th scope="row" class="table-info">JavaScript <i class="fab fa-js"></i></th>
+                        <td>Sofp</td>
+                        <td title="Github repository"><a href="https://github.com/vaisala-oss/sofp-core"><i class="fab fa-github"></i></a><a href="https://github.com/vaisala-oss/sofp-lib"><i class="fab fa-github"></i></a></td>
+                        <td title="Docker image"><a href="https://hub.docker.com/r/sofp/core"><i class="fab fa-docker"></i></a><a href="https://hub.docker.com/r/sofp/example-backend"><i class="fab fa-docker"></i></a></td>
+                        <td title="Tutorial/Example"><a href="https://github.com/vaisala-oss/sofp-example-backend"><i class="fas fa-graduation-cap"></i>/<i class="fas fa-code"></i></a></td>                
+                        </tr>
+                        <tr>
+                        <th scope="row" rowspan="2" class="table-info">C/C++</th>
+                        <td>QGIS Server</td>
+                        <td title="Github repository"><a href="https://github.com/qgis/QGIS/"><i class="fab fa-github"></i></a></td>
+                        <td title="Docker image"><a href="https://hub.docker.com/r/kartoza/qgis-server"><i class="fab fa-docker"></i></a></td>
+                        <td title="Tutorial/Example"><a href="https://docs.qgis.org/testing/en/docs/server_manual/services.html#wfs3-ogc-api-features"><i class="fas fa-graduation-cap"></i>/<i class="fas fa-code"></i></a></td>                
+                        </tr>
+                        <tr>
+                        <td>GNOSIS Map Server<sup>*</sup></td>
+                        <td title="Website"><a href="https://ecere.ca/gnosis/"><i class="fas fa-link"></i></a></td>
+                        <td title="Docker image"></td>
+                        <td title="Tutorial/Example"></td>                
+                        </tr>                        
+                    </tbody>
+                    </table>
+
+
+                    <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                        <th scope="col" colspan="5" class="table-dark">Clients by Technology</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th scope="row" rowspan="2" class="table-info">Python <i class="fab fa-python"></i></th>
+                        <td>OWSLib</td>
+                        <td title="Github repository"><a href="https://github.com/geopython/OWSLib"><i class="fab fa-github"></i></a></td>
+                        <td title="Code sample/Documentation"><a href="https://geopython.github.io/OWSLib/usage.html#ogc-api-features-1-0"><i class="fas fa-graduation-cap"></i>/<i class="fas fa-code"></i></a></td>                
+                        </tr>
+                        <tr>
+                        <td>Pygdal</td>
+                        <td title="Github repository"><a href="https://github.com/nextgis/pygdal"><i class="fab fa-github"></i></a></td>
+                        <td colspan="2">Check <a href="https://gdal.org/drivers/vector/oapif.html">GDAL's documentation</a>.</td>          
+                        </tr>                        
+                        <tr>
+                        <th scope="row" class="table-info">JavaScript <i class="fab fa-js"></i></th>
+                        <td>ogcapi-js</td>
+                        <td title="Github repository"><a href="https://github.com/haoliangyu/ogcapi-js"><i class="fab fa-github"></i></a></td>
+                        <td title="Tutorial/Example"><a href="https://haoliangyu.github.io/ogcapi-js/"><i class="fas fa-graduation-cap"></i>/<i class="fas fa-code"></i></a></td>                
+                        </tr>
+                        <tr>
+                        <th scope="row" class="table-info">C/C++</th>
+                        <td>GDAL</td>
+                        <td title="Github repository"><a href="https://github.com/OSGeo/gdal"><i class="fab fa-github"></i></a></td>
+                        <td title="Tutorial/Example"><a href="https://gdal.org/drivers/vector/oapif.html"><i class="fas fa-graduation-cap"></i>/<i class="fas fa-code"></i></a></td>                
+                        </tr>                        
+                    </tbody>
+                    </table>
+
+                    h3.section-subheading.text-muted <sup>*</sup> Certified 
+                        a(href='https://www.ogc.org/compliance' title='Compliance' target="_blank") compliant
+                        | product.
+
+                    //- h3.section-subheading.text-muted An extensive list can be found
+                    //-     a(href='https://github.com/opengeospatial/ogcapi-features/tree/master/implementations' title='Implementations' target="_blank") here
+                    //-     |.
+
+                    //- span.fa-stack.fa-4x
+                    //-     a(href='https://github.com/opengeospatial/ogcapi-features/tree/master/implementations')
+                    //-         i.fas.fa-circle.fa-stack-2x.text-primary
+                    //-         i.fas.fa-rocket.fa-stack-1x.fa-inverse
+
+
+
+        section#adopters.page-section
+            .container
+                .text-center
+                    h2.section-heading.text-uppercase Who is behind OGC API Features?
+                p.text-muted 
+                    | OGC API Features is developed through a member-driven consensus process, which creates royalty free, publicly available, open geospatial standards.
+                    | The
+                    a(href="https://www.ogc.org/") Open Geospatial Consortium (OGC)
+                    | is the organisation which drives this process. It is supported by an active community of members, with involvement from a large range of organizations, as well as smaller ones. <a href="https://www.ogc.org/ogc/join/levels">Join OGC today!</a>
+
+                div.py-5
+                    .container
+                        .row.align-items-center
+
+                            //- .col-md-4.col-sm-6.my-4   
+                            //-     a(href='#!')
+                            //-         img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/i-bitz_logo.svg', alt='...')                                      
+                            //- .col-md-4.col-sm-6.my-4   
+                            //-     a(href='#!')
+                            //-         img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/i-bitz_logo2.svg', alt='...')                                      
+                            //- .col-md-4.col-sm-6.my-4   
+                            //-     a(href='#!')
+                            //-         img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/i-bitz_logo2.svg', alt='...')                                      
+                            //- .col-md-4.col-sm-6.my-4   
+                            //-     a(href='#!')
+                            //-         img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/i-bitz_logo2.svg', alt='...')                                      
+
+                            .col-md-4.col-sm-.my-4
+                                a(href='#!')
+                                    img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/maxar_gold_logo_rgb.svg',  alt='...')
+                            .col-md-4.col-sm-6.my-4
+                                a(href='#!')
+                                    img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/esa.svg', alt='...')
+                            .col-md-4.col-sm-6.my-4
+                                a(href='#!')
+                                    img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/nrcan.svg', alt='...')
+                            .col-md-4.col-sm-6.my-4
+                                a(href='#!')
+                                    img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/cubic.svg', alt='...')
+                            .col-md-4.col-sm-6.my-4
+                                a(href='#!')
+                                    img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/os.svg', alt='...')
+                            .col-md-4.col-sm-6.my-4
+                                a(href='#!')
+                                    img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/microsoft2.svg', alt='...')
+                            .col-md-4.col-sm-6.my-4
+                                a(href='#!')
+                                    img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/hexagon.svg', alt='...')  
+                            .col-md-4.col-sm-6.my-4
+                                a(href='#!')
+                                    img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/TrimbleR-Horiz-RGB-Blue.svg', alt='...')                                   
+                            .col-md-4.col-sm-6.my-4
+                                a(href='#!')
+                                    img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/ecere.svg', alt='...')
+                            .col-md-4.col-sm-6.my-4   
+                                a(href='#!')
+                                    img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/interactive-instruments.svg', alt='...')                                      
+                            .col-md-4.col-sm-6.my-4   
+                                a(href='#!')
+                                    img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/i-bitz_logo.svg', alt='...')                                      
+
+                p.text-muted.small 
+                    | The logos above are a small subset of all OGC members.
+                    | They are either strategic/principal members, and/or organisations who implement products certified for OGC API Features.
+
+        //- section#adopters.page-section
+        //-     .container
+        //-         .text-center
+        //-             h2.section-heading.text-uppercase Who else is using it?
+        //-             h3.section-subheading.text-muted These are some organizations who are using OGC API Features.
+
+
+                div.py-5
+                    .container
+                        .row.align-items-center
+                            .col-md-3.col-sm-6.my-3
+                                a(href='#!')
+                                    img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/microsoft.svg', alt='...')
+                            .col-md-3.col-sm-6.my-3
+                                a(href='#!')
+                                    img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/google.svg', alt='...')
+                            .col-md-3.col-sm-6.my-3
+                                a(href='#!')
+                                    img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/facebook.svg', alt='...')
+                            .col-md-3.col-sm-6.my-3
+                                a(href='#!')
+                                    img.img-fluid.img-brand.d-block.mx-auto(src='assets/img/logos/ibm.svg', alt='...')
+
+                    //img(src='assets/img/canada.png' height="100", alt='..')
+                    //img(src='assets/img/esri.png' height="100", alt='..')
+                    //img(src='assets/img/os.png' height="100", alt='..')
+
+
+
+        // Team
+        section#team.page-section.bg-light
+            .container
+                .text-center
+                    h2.section-heading.text-uppercase Get Started
+                    h3.section-subheading.text-muted Here is something to get you started.
+
+
+                ul.timeline
+                    li
+                        .timeline-image
+                            a(href='http://opengeospatial.github.io/e-learning/ogcapi-features/text/basic-index.html' title='E-learning' target="_blank")
+                                img.rounded-circle.img-fluid(src='assets/img/about/elearning.jpeg', alt='...')
+                        .timeline-panel
+                            .timeline-heading
+                                h4.subheading Complete an online training
+                            .timeline-body
+                                p.text-muted
+                                    | If you are familiar with web services and APIs, and want to have an overview of the OGC API - Features standard, this training is for you.
+                            //a.btn.btn-dark.btn-social.mx-2(href='http://opengeospatial.github.io/e-learning/ogcapi-features/text/basic-index.html' title='E-learning' target="_blank")
+                                i.fa.fa-link
+
+                    //- li.timeline-inverted
+                    //-     .timeline-image
+                    //-         a(href='https://github.com/opengeospatial/OGC-API-Sprint-September-2020/blob/master/docs/Draft_Spring_Guide_for_OGC_API_Features/Draft_Spring_Guide_for_OGC_API_Features.adoc' title='E-learning' target="_blank")
+                    //-             img.rounded-circle.img-fluid(src='assets/img/about/spring.jpeg', alt='...')
+                        //- .timeline-panel
+                        //-     .timeline-heading
+                        //-         h4.subheading Implement a server in Java
+                        //-     .timeline-body
+                        //-         p.text-muted
+                        //-             |  If you are a Java Spring developer and want to work with API definition files from the OGC API - Features standard, you can follow this guide.
+                            //a.btn.btn-dark.btn-social.mx-2(href='https://github.com/opengeospatial/OGC-API-Sprint-September-2020/blob/master/docs/Draft_Spring_Guide_for_OGC_API_Features/Draft_Spring_Guide_for_OGC_API_Features.adoc' title='E-learning' target="_blank")
+                                i.fa.fa-link
+                    //- li
+                    //-     .timeline-image
+                    //-         img.rounded-circle.img-fluid(src='assets/img/about/3.jpg', alt='...')
+                    //-     .timeline-panel
+                    //-         .timeline-heading
+                    //-             h4 December 2015
+                    //-             h4.subheading Transition to Full Service
+                    //-         .timeline-body
+                    //-             p.text-muted
+                    //-                 | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+                    //- li.timeline-inverted
+                    //-     .timeline-image
+                    //-         img.rounded-circle.img-fluid(src='assets/img/about/4.jpg', alt='...')
+                    //-     .timeline-panel
+                    //-         .timeline-heading
+                    //-             h4 July 2020
+                    //-             h4.subheading Phase Two Expansion
+                    //-         .timeline-body
+                    //-             p.text-muted
+                    //-                 | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!
+                    li.timeline-inverted
+                     a(href='#contact' title='Get Involved')
+                        .timeline-image
+                            h4
+                                | Get
+                                br
+                                | Involved!
+
+
+        // Contact
+        section#contact.page-section
+             .container
+                .text-center
+                    h2.section-heading.text-uppercase Get Involved
+                    h3.section-subheading.text-muted Tell us what’s working well, what you want to see added or improved, and find out about new updates.
+                .row.text-center
+                    .col-md-4
+                        span.fa-stack.fa-4x
+                            a(href='https://stackoverflow.com/search?q=ogc+api+features' title='Stack Overflow')
+                                i.fas.fa-circle.fa-stack-2x.text-primary
+                                i.fab.fa-stack-overflow.fa-stack-1x.fa-inverse
+                        h4.my-3 Stack Overflow
+                        p.text-muted
+                            | Engage with your peers and ask questions about OGC API Features using the tag 'OGC API Features'
+                    .col-md-4
+                        span.fa-stack.fa-4x
+                            a(href='https://discord.gg/3uyaZZuXr3' title='Discord')                        
+                                i.fas.fa-circle.fa-stack-2x.text-primary
+                                i.fab.fa-discord.fa-stack-1x.fa-inverse
+                        h4.my-3 Discord
+                        p.text-muted
+                            | Chat with other OGC API Features users in the OGC Community channel.
+                    .col-md-4
+                        span.fa-stack.fa-4x
+                            a(href='https://github.com/opengeospatial/ogcapi-features' title='Github')
+                                i.fas.fa-circle.fa-stack-2x.text-primary
+                                i.fab.fa-github.fa-stack-1x.fa-inverse
+                        h4.my-3 GitHub
+                        p.text-muted
+                            | Found a bug, or want to give us constructive feedback? 
+
+
+        // Footer
+        footer.footer.py-4
+            .container
+                .row.align-items-center
+                    .col-lg-4.text-lg-start
+                        | Copyright &copy; 2021. Open Geospatial Consortium all rights reserved
+                    .col-lg-4.my-3.my-lg-0
+                        a.btn.btn-dark.btn-social.mx-2(href='https://twitter.com/opengeospatial/')
+                            i.fab.fa-twitter
+                        a.btn.btn-dark.btn-social.mx-2(href='https://www.youtube.com/user/ogcvideo')
+                            i.fab.fa-youtube
+                        //- a.btn.btn-dark.btn-social.mx-2(href='#!')
+                        //-     i.fab.fa-telegram-plane
+                        a.btn.btn-dark.btn-social.mx-2(href='https://www.linkedin.com/company/open-geospatial-consortium')
+                            i.fab.fa-linkedin-in
+                    .col-lg-4.text-lg-end
+                        a.link-dark.text-decoration-none.me-3(data-bs-toggle='modal', data-bs-target='#portfolioModal1') Privacy Policy
+                    //-     a.link-dark.text-decoration-none(href='#!') Terms of Use
+
+        // Portfolio Modals
+        include includes/portfolio-modal-1
+        include includes/portfolio-modal-2
+        include includes/portfolio-modal-3
+        include includes/portfolio-modal-4
+        include includes/portfolio-modal-5
+        include includes/portfolio-modal-6
+
+        // Bootstrap core JS
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js')
+
+        // Core theme JS
+        script(src='js/scripts.js')
+
+        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+        // * *                               SB Forms JS                               * *
+        // * * Activate your form at https://startbootstrap.com/solution/contact-forms * *
+        // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+        script(src='https://cdn.startbootstrap.com/sb-forms-latest.js')
