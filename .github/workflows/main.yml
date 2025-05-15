@@ -15,16 +15,16 @@ jobs:
         run: |
           npm install
  
+      - name: build website
+        run: |
+          npm run build
+          mv dist/ /tmp
  
-    # - name: build website
-    #   run: |
-    #       npm run build
-    #       mv dist/ /tmp
+      - name: checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages        
 
-    # - name: checkout gh-pages branch
-    #   uses: actions/checkout@v4
-    #   with:
-    #       ref: gh-pages
 
     # - name: update gh-pages branch and publish
     #   run: | 
