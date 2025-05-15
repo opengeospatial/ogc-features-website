@@ -31,6 +31,6 @@ jobs:
           git config --global user.name "doublebyte1"
           rm -rf assets css js index.html
           mv -f /tmp/dist/* .
-          git add .
-          git commit -a -m "update website"
-          git push
+# git add .
+# git commit -a -m "update website"
+# git push
