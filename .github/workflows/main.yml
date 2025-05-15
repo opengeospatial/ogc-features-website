@@ -1,18 +1,27 @@
-name: build website
-
+name:  build website
 on: push
-
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-
     steps:
-    - name:  checkout repo
-      uses: actions/checkout@v4
+      - name: checkout repo
+        run: echo "Hello World!"
 
-    - name:  setup NodeJS
-      uses: actions/setup-node@v4
+# name: build website
+
+# on: push
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     timeout-minutes: 20
+
+#     steps:
+#     - name:  checkout repo
+#       uses: actions/checkout@v4
+
+#     - name:  setup NodeJS
+#       uses: actions/setup-node@v4
 
     # - name:  install dependencies
     #   run:  |
