@@ -13,13 +13,9 @@ jobs:
 
       - name: install dependencies
         run: |
-          npm run build
-          mv dist/ /tmp
-
-    # - name:  install dependencies
-    #   run:  |
-    #       npm install
-
+          npm install
+ 
+ 
     # - name: build website
     #   run: |
     #       npm run build
