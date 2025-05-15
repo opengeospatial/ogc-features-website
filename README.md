@@ -8,13 +8,7 @@ Run with:
 
 `npm start`
 
-Build with:
-
-`npm run build`
-
-Publish on features.developer.ogc.org with:
-
-`git subtree push --prefix dist origin gh-pages`
+The site is automatically published with every commit, on features.developer.ogc.org.
 
 ## License
 
