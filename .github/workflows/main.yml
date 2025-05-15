@@ -32,5 +32,5 @@ jobs:
           rm -rf assets css js index.html
           mv -f /tmp/dist/* .
           git add .
-          git commit -am "update website"
+          git commit -a -m "update website"
           git push
