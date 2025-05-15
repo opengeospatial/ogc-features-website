@@ -37,11 +37,6 @@ jobs:
         run: |
           npm run build
  
-      # - name: checkout gh-pages branch
-      #   uses: actions/checkout@v4
-      #   with:
-      #     ref: gh-pages        
-
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
@@ -54,28 +49,3 @@ jobs:
         uses: actions/deploy-pages@v4
         env:  
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  #     - name: update gh-pages branch and publish
-  #       run: |
-  #         git config --global user.email "doublebyte@hushmail.com"
-  #         git config --global user.name "doublebyte1"
-  #         rm -rf assets css js index.html
-  #         mv -f /tmp/dist/* .
-  #         git add .
-  #         git commit -a -m "update website"
-  #         git push
-
-  # # Deployment job
-  # deploy:
-  #   needs: build
-  #   permissions:
-  #     pages: write      # to deploy to Pages
-  #     id-token: write   # to verify the deployment originates from an appropriate source
-  #   environment:
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Deploy to GitHub Pages
-  #       id: deployment
-  #       uses: actions/deploy-pages@v4
