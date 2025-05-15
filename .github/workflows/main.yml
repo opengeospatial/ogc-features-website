@@ -11,9 +11,10 @@ jobs:
       - name: setup NodeJS
         uses: actions/setup-node@v4
 
-
-#     - name:  setup NodeJS
-#       uses: actions/setup-node@v4
+      - name: install dependencies
+        run: |
+          npm run build
+          mv dist/ /tmp
 
     # - name:  install dependencies
     #   run:  |
