@@ -1,11 +1,6 @@
 name: build website
 
-on:
-  push:
-    branches:
-    - master
-    paths:
-    - 'src/**'
+on: push
 
 jobs:
   build:
