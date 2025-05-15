@@ -8,18 +8,9 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v4
 
-# name: build website
+      - name: setup NodeJS
+        uses: actions/setup-node@v4
 
-# on: push
-
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     timeout-minutes: 20
-
-#     steps:
-#     - name:  checkout repo
-#       uses: actions/checkout@v4
 
 #     - name:  setup NodeJS
 #       uses: actions/setup-node@v4
