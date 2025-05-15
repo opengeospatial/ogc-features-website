@@ -1,4 +1,4 @@
-name:  build website
+name:  build website # ThankYou @tomkralidis!
 on: push
 jobs:
   build:
@@ -25,13 +25,12 @@ jobs:
         with:
           ref: gh-pages        
 
-
-    # - name: update gh-pages branch and publish
-    #   run: | 
-    #       git config --global user.email "doublebyte@hushmail.com"
-    #       git config --global user.name "doublebyte1"
-    #       rm -rf assets css js index.html
-    #       mv -f /tmp/dist/* .
-    #       git add .
-    #       git commit -am "update website"
-    #       git push
+      - name: update gh-pages branch and publish
+        run: |
+          git config --global user.email "doublebyte@hushmail.com"
+          git config --global user.name "doublebyte1"
+          rm -rf assets css js index.html
+          mv -f /tmp/dist/* .
+          git add .
+          git commit -am "update website"
+          git push
