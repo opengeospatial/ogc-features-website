@@ -4,7 +4,8 @@ name: build website
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+    - master
     paths:
       - 'src/**'
 
@@ -15,7 +16,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name:  checkout repo
-        uses: actions/checkout@master
+        uses: actions/checkout@v1
 
       - name:  setup NodeJS
         uses: actions/setup-node@v4
