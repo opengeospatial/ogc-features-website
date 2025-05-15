@@ -3,9 +3,10 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: checkout repo
-        run: echo "Hello World!"
+        uses: actions/checkout@v4
 
 # name: build website
 
