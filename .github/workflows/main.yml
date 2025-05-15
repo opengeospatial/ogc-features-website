@@ -5,9 +5,9 @@ name: build website
 on:
   push:
     branches:
-    - master
+     - master
     paths:
-      - 'src/**'
+     - 'src/**'
 
 jobs:
   build:
