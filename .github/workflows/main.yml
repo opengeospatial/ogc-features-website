@@ -1,4 +1,4 @@
-name:  build website # ThankYou @tomkralidis!
+name: build website # ThankYou @tomkralidis!
 
 on:
   push:
@@ -6,21 +6,16 @@ on:
   pull_request:
     branches: [ "master" ]
 
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    # continue-on-error: true
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
-      contents: 'read'
-      id-token: 'write'
-      pages: 'write'
-      actions: 'write'
-      checks: 'write'
-      deployments: 'write'
+      contents: read
 
     steps:
       - name: checkout repo
@@ -28,24 +23,43 @@ jobs:
 
       - name: setup NodeJS
         uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
 
       - name: install dependencies
-        run: |
-          npm install
- 
+        run: npm ci
+
       - name: build website
-        run: |
-          npm run build
- 
+        run: npm run build
+
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        if: github.event_name == 'push'
+        uses: actions/configure-pages@v5
+
       - name: Upload artifact
+        if: github.event_name == 'push'
+        id: upload-artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload build directory content
           path: 'dist/'
+
+  deploy:
+    needs: build
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        env:  
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
